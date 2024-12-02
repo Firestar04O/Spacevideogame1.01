@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Createenemy : MonoBehaviour
 {
+    public GameManagerContol gamemanager;
     public GameObject enemyPrefab;
     public float xMinPosition;
     public float xMaxPosition;
@@ -23,6 +24,7 @@ public class Createenemy : MonoBehaviour
     {
         float xPosition = Random.Range(xMinPosition, xMaxPosition);
         Vector2 positionToCreate = new Vector2(xPosition, yposition);
-        Instantiate(enemyPrefab, positionToCreate, transform.rotation);
+        GameObject enemy = Instantiate(enemyPrefab, positionToCreate, transform.rotation);
     }
+    
 }

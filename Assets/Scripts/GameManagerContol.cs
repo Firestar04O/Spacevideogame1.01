@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerContol : MonoBehaviour
 {
-    public GameObject Enemy;
-    public string Scene;
+    public Text textscore;
+    public int currentscore;
     void Update()
     {
-        // es de menú a gameplay
-        if(Scene == "Gameplay")
-        {
-            if (Input.GetButtonDown("Jump") == true)
-            {
-            SceneManager.LoadScene(Scene);
-            }
-        }
-        // es de gameplay a menú
-        else if (Scene == "MainMenu")
-        {
-            if (Enemy.tag == "Player")
-            {
-                SceneManager.LoadScene(Scene);
-            }
-        }
+
+    }
+    public void PressButton()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+    public void UpdateScore(int points)
+    {
+        currentscore = currentscore + points;
+        textscore.text = "Score: " + currentscore;
     }
 }
